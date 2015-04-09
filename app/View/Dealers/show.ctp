@@ -140,6 +140,7 @@ if($admin == 1){?>
                             'about_body' => array('wysiwyg' => 'undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent', 'label' => 'About Body'),
                             'services_text' => array('wysiwyg' => 'undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent', 'label' => 'Services Text'),
                             'staff_text' => array('wysiwyg' => 'undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent', 'label' => 'Staff Text'),
+                            'video_link' => array('label' => 'Optional share link to YouTube video'),
                             'hours' => array('label' => 'Store Hours', 'wysiwyg' => 'undo redo'),
                             'latitude' => array('dealer_limit' => TRUE),
                             'longitude' => array('dealer_limit' => TRUE),
@@ -158,6 +159,8 @@ Monday - Friday: 10AM - 5:30PM<br />
 Saturday: 12PM - 4PM<br />
 Sunday: CLOSED<br />';
                         $fields['longitude']['after'] = '<br />Please go to <a href="http://www.latlong.net/" target="_blank">http://www.latlong.net/</a> to find the latitude and longitude of an address
+                            </td>';
+                        $fields['video_link']['after'] = '<br />Please enter the share link.<br />'.$this->Html->image('embed_code.jpg', array('style' => 'width:500px;')).'
                             </td>';
                         $fields['url_redirect']['after'] = '<br /><font color="red"><b><u>PLEASE FORMAT URL AS:</u>&nbsp;&nbsp;&nbsp;http://www.website.com</b></font>
                             </td>';

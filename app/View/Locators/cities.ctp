@@ -140,7 +140,12 @@
                 <div id="dealer_details_2col" class="cols">
                     <?php /* VIDEO */ ?>
                     <div id="dealer_details_2col_video">
-                        <iframe width="459" height="283" src="//www.youtube.com/embed/aDETNR5oAgg?rel=0" frameborder="0" allowfullscreen></iframe>
+                        <?php if(!empty($dealer['Dealer']['video_link'])){
+                            $link = substr($dealer['Dealer']['video_link'], strrpos($dealer['Dealer']['video_link'], '/') + 1);
+                        }else{
+                            $link = 'aDETNR5oAgg';
+                        }?>
+                        <iframe width="459" height="283" src="//www.youtube.com/embed/<?php echo $link;?>?rel=0" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <?php /* TESTIMONIALS */ ?>
                     <div id="dealer_details_2col_testimonials">

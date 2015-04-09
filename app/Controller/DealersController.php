@@ -208,6 +208,7 @@ class DealersController extends AppController
                         'alternate_truckload_state' => '',
                         'alternate_truckload_zip' => '',
                         'alternate_truckload_name' => '',
+                        'video_link' => ''
                     )
                 );
             }else{
