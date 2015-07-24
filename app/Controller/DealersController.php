@@ -1710,6 +1710,8 @@ class DealersController extends AppController
 			$headers .= 'Cc: martin.borsanyi@jacuzzi.com' . "\r\n";
 			//$headers .= 'Bcc: russell@ninthlink.com' . "\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+            $headers .= 'From: dealers@ninthlink.com' . "\r\n" .
+                'Reply-To: dealers@ninthlink.com' . "\r\n";
             mail( $to, $subject, $message, $headers);
         }
     }
@@ -1747,7 +1749,8 @@ class DealersController extends AppController
             $message .= '</body></html>';
             $headers = 'MIME-Version: 1.0' . "\r\n";
             //$headers .= 'Cc: chris.barnwell@ninthlink.com' . "\r\n";
-            $headers .= 'From: chris.barnwell@ninthlink.com' . "\r\n";
+            $headers .= 'From: dealers@ninthlink.com' . "\r\n" .
+                'Reply-To: dealers@ninthlink.com' . "\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
             mail( $email, $subject, $message, $headers);
         }
@@ -1792,7 +1795,8 @@ class DealersController extends AppController
             $message .= '</body></html>';
             $headers = 'MIME-Version: 1.0' . "\r\n";
             //$headers .= 'Cc: chris.barnwell@ninthlink.com' . "\r\n";
-            $headers .= 'From: chris.barnwell@ninthlink.com' . "\r\n";
+            $headers .= 'From: dealers@ninthlink.com' . "\r\n" .
+                'Reply-To: dealers@ninthlink.com' . "\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
             mail( $email, $subject, $message, $headers);
@@ -1821,6 +1825,8 @@ class DealersController extends AppController
                         '</body></html>';
             $headers = 'MIME-Version: 1.0' . "\r\n";
             $headers .= 'Cc: chris.barnwell@ninthlink.com' . "\r\n";
+            $headers .= 'From: dealers@ninthlink.com' . "\r\n" .
+                'Reply-To: dealers@ninthlink.com' . "\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
             mail( $to, $subject, $message, $headers);
