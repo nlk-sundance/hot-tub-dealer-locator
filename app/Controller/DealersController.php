@@ -1503,6 +1503,7 @@ class DealersController extends AppController
         if (strpos($_SERVER['HTTP_HOST'], '.ca') !== false) {
             $this->redirect('http://www.sundancespas.com/hot-tub-dealer-locator/dealers/login');
         }
+        $this->Session->destroy();
         //pr($this->Session->read('login'));
         $this->layout = "blank";
         $user = null;
@@ -1604,7 +1605,8 @@ class DealersController extends AppController
     }
     
     function logout(){
-        $this->Session->delete("login");
+        //$this->Session->delete("login");
+        $this->Session->destroy();
         $this->redirect("/dealers/login");
     }
     
