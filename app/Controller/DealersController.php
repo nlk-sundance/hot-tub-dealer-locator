@@ -163,8 +163,15 @@ class DealersController extends AppController
          return ($data);
     }
     
+    function set_cache(){
+        header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+        header("Pragma: no-cache"); // HTTP 1.0.
+        header("Expires: 0"); // Proxies.
+    }
+    
     function show($id=null){
         $group_id = $this->checkLogin($id);
+        $this->set_cache();
         $this->layout = "admin";
         $this->getQuery();
         $showZip = false;
@@ -740,6 +747,7 @@ class DealersController extends AppController
     
     function quotes($id, $requestApproval = 0){
         $group_id = $this->checkLogin($id);
+        $this->set_cache();
         $this->set('group_id', $group_id);
         $this->getQuery();
         $this->layout = "admin";
@@ -833,6 +841,7 @@ class DealersController extends AppController
     
     function services($id, $requestApproval = 0){
         $group_id = $this->checkLogin($id);
+        $this->set_cache();
         $this->set('group_id', $group_id);
         $fail = FALSE;
         //find the dealer's version of this if it exists
@@ -941,6 +950,7 @@ class DealersController extends AppController
     
     function images($id, $requestApproval = 0){
         $group_id = $this->checkLogin($id);
+        $this->set_cache();
         $this->set('group_id', $group_id);
         $fail = FALSE;
         $copy_id = $this->Dealer->field('id', array('dealer_id' => $id));
@@ -1118,6 +1128,7 @@ class DealersController extends AppController
     
     function staff($id, $requestApproval = 0){ 
         $group_id = $this->checkLogin($id);
+        $this->set_cache();
         $this->set('group_id', $group_id);
         
         $copy_id = $this->Dealer->field('id', array('dealer_id' => $id));
@@ -1384,6 +1395,7 @@ class DealersController extends AppController
     #adds zip to a dealer
     function zip( $id=null){
         $this->checkLogin($id); 
+        $this->set_cache();
         $this->layout = "admin";
         $this->getQuery();
         $data = null;
