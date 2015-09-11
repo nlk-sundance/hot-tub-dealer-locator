@@ -1737,6 +1737,7 @@ class DealersController extends AppController
     
     function email_dealer_feedback($id, $feedback, $approved = 1)
     {
+        $feedback = str_replace(array("\n\r", "\n"), '<br />', $feedback);
         $email = '';
         if($this->Session->check("login")){
             $user = $this->Session->read("login");
@@ -1754,7 +1755,14 @@ class DealersController extends AppController
             }
         }
         //$email = 'aimee@ninthlink.com';
-        $subject = 'Updated Content '.($approved == 1 ? 'Approved' : 'Feedback');    
+        if($approved == 1){
+            $subject = 'Sundance Spas Dealer Page Updates Approved';
+        }else{
+            $subject = 'Updated Content Feedback';
+        }
+        echo '<pre style="display:none;">';
+        print_r($email);
+        print_r($feedback);
         if(!empty($email)){
 
             // $email .= ', ' . 'someone-else@ninthlink.com';  // <--- to add another mail recipient uncomment this line and change email address
@@ -1766,8 +1774,13 @@ class DealersController extends AppController
             $headers .= 'From: dealers@ninthlink.com' . "\r\n" .
                 'Reply-To: dealers@ninthlink.com' . "\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-            mail( $email, $subject, $message, $headers);
+            print_r($email);
+            print_r($subject);
+            print_r($message);
+            print_r($headers);
+            echo 'hi';print_r(mail( $email, $subject, $message, $headers));echo 'hi';
         }
+        echo '</pre>';
         $this->Dealer->create();
         $this->Dealer->id = $dealer_id;
         $this->Dealer->saveField('dealer_message', $feedback);
