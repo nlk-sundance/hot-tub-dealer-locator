@@ -1737,7 +1737,6 @@ class DealersController extends AppController
     
     function email_dealer_feedback($id, $feedback, $approved = 1)
     {
-        $feedback = str_replace(array("\n\r", "\n"), '<br />', $feedback);
         $email = '';
         if($this->Session->check("login")){
             $user = $this->Session->read("login");
@@ -1755,11 +1754,7 @@ class DealersController extends AppController
             }
         }
         //$email = 'aimee@ninthlink.com';
-        if($approved == 1){
-            $subject = 'Sundance Spas Dealer Page Updates Approved';
-        }else{
-            $subject = 'Updated Content Feedback';
-        }
+        $subject = 'Updated Content '.($approved == 1 ? 'Approved' : 'Feedback');    
         if(!empty($email)){
 
             // $email .= ', ' . 'someone-else@ninthlink.com';  // <--- to add another mail recipient uncomment this line and change email address
