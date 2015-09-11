@@ -1739,19 +1739,11 @@ class DealersController extends AppController
     {
         $feedback = str_replace(array("\n\r", "\n"), '<br />', $feedback);
         $email = '';
-        if($this->Session->check("login")){
-            $user = $this->Session->read("login");
-            if(!empty($user['email'])){
-                $email = $user['email'];
-            }
-        }
         $dealer_id = $this->Dealer->field('dealer_id', array("Dealer.id" => $id));
-        if(empty($email)){
-            if(!empty($dealer_id)){
-                $user = $this->User->find('first', array('conditions' => array('dealer_id' => $dealer_id)));
-                if(!empty($user)){
-                    $email = $user['User']['email'];
-                }
+        if(!empty($dealer_id)){
+            $user = $this->User->find('first', array('conditions' => array('dealer_id' => $dealer_id)));
+            if(!empty($user)){
+                $email = $user['User']['email'];
             }
         }
         //$email = 'aimee@ninthlink.com';
@@ -1760,9 +1752,6 @@ class DealersController extends AppController
         }else{
             $subject = 'Updated Content Feedback';
         }
-        echo '<pre style="display:none;">';
-        print_r($email);
-        print_r($feedback);
         if(!empty($email)){
 
             // $email .= ', ' . 'someone-else@ninthlink.com';  // <--- to add another mail recipient uncomment this line and change email address
@@ -1774,14 +1763,8 @@ class DealersController extends AppController
             $headers .= 'From: dealers@ninthlink.com' . "\r\n" .
                 'Reply-To: dealers@ninthlink.com' . "\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-            print_r($email);
-            print_r($subject);
-            print_r($message);
-            print_r($headers);
-            echo 'hi';print_r(mail( $email, $subject, $message, $headers));echo 'hi';
+            mail( $email, $subject, $message, $headers);
         }
-        echo '</pre>';
-        die();
         $this->Dealer->create();
         $this->Dealer->id = $dealer_id;
         $this->Dealer->saveField('dealer_message', $feedback);
