@@ -1781,6 +1781,7 @@ class DealersController extends AppController
             echo 'hi';print_r(mail( $email, $subject, $message, $headers));echo 'hi';
         }
         echo '</pre>';
+        die();
         $this->Dealer->create();
         $this->Dealer->id = $dealer_id;
         $this->Dealer->saveField('dealer_message', $feedback);
