@@ -746,9 +746,9 @@ class LocatorsController extends AppController
             if($inUSCA) {
                 $zip_searched = $_POST['zip'];
                 if(!$zipCountryMatch) {
-                    $errorMsg = 'Sorry, there were no results found for your search. Please verify that you have selected the correct country and have entered a valid zip code or postal code.';
+                    $errorMsg = '<p>Sorry, there were no results found for your search. Please verify that you have selected the correct country and have entered a valid zip code or postal code.</p><p><a href="/hot-tub-dealer-locator/">Try searching another location.</a></p>';
                 }elseif(!$validZip) { //invalid zip code/postal code
-                    $errorMsg = 'Sorry, there were no results found for your search. Please make sure you have entered a valid zip code or postal code and try again.';
+                    $errorMsg = '<p>Sorry, there were no results found for your search. Please make sure you have entered a valid zip code or postal code and try again.</p><p><a href="/hot-tub-dealer-locator/">Try searching another location.</a></p>';
                 }else {
                     $subDomain = '';
                     $dealer = $this->show($subDomain, $countryId); //get dealers
