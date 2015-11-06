@@ -22,8 +22,9 @@
         <div class="errorMsg"><?php echo $errorMsg ?></div>
     <?php elseif(empty($dealer) || (!isset($dealer[0]['Dealer']) && !isset($dealer['Dealer']))):?>
         <div class="bar2">
-            <p>Sorry, there were no results found for your search. Please make sure you have entered a valid zip code or postal code and try again.</p>
-            <p><a href="/hot-tub-dealer-locator/">Try searching another location.</a></p>
+            <h1>We're Sorry</h1>
+            <p><span class="lead">There were no results found for your search. </span>Please make sure you have entered a valid zip code or postal code and try again.</p>
+            <a class="bigBlueBtn" href="/hot-tub-dealer-locator/">Try searching another location</a>
         </div>
     <?php else:
         foreach($dealer as $d): ?>
