@@ -1,3 +1,13 @@
+<script type="text/javascript" 
+   src="//display-stg.ugc.bazaarvoice.com/static/sundancespas/en_US/bvapi.js">
+</script>
+<script type="text/javascript">
+   $BV.SI.trackConversion({
+    "type" : "Dealer",
+    "label" : "Lead Dealer",
+    "value" : 1
+        });
+</script>
 <?php 
     //get browser
     $google_maps_api_key = 'AIzaSyBLR26aZ8XWgJLXkk1ZiX0CQ6BJSYp2qlU';
