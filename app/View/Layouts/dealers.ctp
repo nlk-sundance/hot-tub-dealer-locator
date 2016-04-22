@@ -17,6 +17,8 @@ function jht_do_hreflang() {
     $url = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
     $p = parse_url($url);
     $a = array(
+    	'/hot-tub-dealer-locator/' => '<link rel="alternate" href="http://www.sundancespas.com/hot-tub-dealer-locator/" hreflang="en-us" /><link rel="alternate" href="http://www.sundancespas.ca/hot-tub-dealer-locator/" hreflang="en-ca" />',
+        '/hot-tub-dealer-locator/cities/' => '<link rel="alternate" href="http://www.sundancespas.com/hot-tub-dealer-locator/cities/" hreflang="en-us" /><link rel="alternate" href="http://www.sundancespas.ca/hot-tub-dealer-locator/cities/" hreflang="en-ca" />',
         '/hot-tub-dealer-locator/quebec-qc/hot-tubs-valdor/' => '<link rel="alternate" href="/hot-tub-dealer-locator/quebec-qc/hot-tubs-valdor/" hreflang="en-us" /><link rel="alternate" href="http://www.sundancespas.ca/hot-tub-dealer-locator/quebec-qc/hot-tubs-valdor/" hreflang="en-ca" />',
         '/hot-tub-dealer-locator/quebec-qc/hot-tubs-saint-jean-sur-richelieu' => '<link rel="alternate" href="/hot-tub-dealer-locator/quebec-qc/hot-tubs-saint-jean-sur-richelieu/" hreflang="en-us" /><link rel="alternate" href="http://www.sundancespas.ca/hot-tub-dealer-locator/quebec-qc/hot-tubs-saint-jean-sur-richelieu/" hreflang="en-ca" />',
         '/hot-tub-dealer-locator/british-columbia-bc/hot-tubs-fernie' => '<link rel="alternate" href="/hot-tub-dealer-locator/british-columbia-bc/hot-tubs-fernie/" hreflang="en-us" /><link rel="alternate" href="http://www.sundancespas.ca/hot-tub-dealer-locator/british-columbia-bc/hot-tubs-fernie/" hreflang="en-ca" />',
@@ -78,7 +80,7 @@ function jht_do_hreflang() {
         '/hot-tub-dealer-locator/quebec-qc/hot-tubs-st-hyacinthe' => '<link rel="alternate" href="/hot-tub-dealer-locator/quebec-qc/hot-tubs-st-hyacinthe/" hreflang="en-us" /><link rel="alternate" href="http://www.sundancespas.ca/hot-tub-dealer-locator/quebec-qc/hot-tubs-st-hyacinthe/" hreflang="en-ca" />',
         '/hot-tub-dealer-locator/quebec-qc/hot-tubs-st--catharines' => '<link rel="alternate" href="/hot-tub-dealer-locator/quebec-qc/hot-tubs-st--catharines/" hreflang="en-us" /><link rel="alternate" href="http://www.sundancespas.ca/hot-tub-dealer-locator/quebec-qc/hot-tubs-st--catharines/" hreflang="en-ca" />',
     );
-  return $a[ $p['path'] ];
+  return $a[ $p['path'] ].'<link rel="alternate" href="http://www.sundance-spas.co.uk/" hreflang="en-gb" />';
 }
 
 
